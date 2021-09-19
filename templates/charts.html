@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/stylish-portfolio.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="{{url_for('.index',company=company)}}">Accueil</a>
+      </li>
+    
+    <li class="sidebar-nav-item">
+      <a class="js-scroll-trigger" href="{{url_for('.caisse', company=company ) }}">Caisse</a>
+    </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.stock',company=company)}}">Stock</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.test', company=company)}}">Fournisseurs</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.logout', company=company ) }}">Se déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+
+<section class="py-5" style="background-image: url('../static/img/Dashboard.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;height: 750px" id='page-top'>
+
+</section>
+<section style="margin: 1.5rem;">
+
+
+<div class="d-flex align-content-xl-center">
+    <div class="container" style="width: 80rem; height: 37.5rem">
+
+    
+        <!-- Bar Chart -->
+        <div class="card shadow mb-4" style="width: 100%; height: 100%;">
+          <div class="card-header py-3" style="background-color:yellow;">
+              <h6 class="m-0 font-weight-bold text-primary">Évolution CA du jour</h6>
+          </div>
+          <div class="card-body" style="width: 100%; height: 100%;">
+              
+                  <canvas id="myBarChart1" ></canvas>
+              
+              <hr>
+              
+          </div>
+      </div>
+  </div>
+                    <div class="d-flex flex-column-reverse" style="width: 40rem; height: auto">
+                
+           
+                
+                                    <!-- Donut Chart -->
+                                <div class="card shadow mb-4"  >
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3" style="background-color:yellow;">
+                                        <h6 class="m-0 font-weight-bold text-primary" >Dépenses vs Bénéfices</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        
+                                        <div class="chart-pie pt-4" style="height: 21rem">
+                                            <canvas id="myPieChart2" ></canvas>
+                                        </div>
+                                        <hr>
+                                   
+                                    </div>
+                                </div>
+
+                            
+                        </br>                            
+                        <div class="card border-left-success shadow h-100 py-2" style="height: .2rem">
+                            <div class="card-body" >
+                                <div class="row no-gutters align-items-center" >
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                          CA du Jour</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ca_jour}}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            
+                            </div>
+                                </div>
+                            </section>
+
+                        </br>
+<section  style="margin: 1.5rem;">
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="container" style="width: 30rem; height: 60rem">
+<!-- Polar Chart Perissabble-->
+         <div class="card shadow mb-4" >
+            <div class="card-header py-3" style="background-color:lightsalmon;">
+                <h6 class="m-0 font-weight-bold text-primary">Imminement Périssable</h6>
+            </div>
+            <div class="card-body" style="width: auto; height: auto"  >
+                <div class="chart-area">
+                     <canvas id="birdsChart"style="width: auto; height: auto" ></canvas>
+                </div>
+                                                                                                                   
+            </div>
+            </div>
+    </div>
+            <div  style="width: 80rem; height: auto">
+<!-- Area Chart Stock-->
+         <div class="card shadow mb-4" >
+            <div class="card-header py-3" style="background-color:lightsalmon;">
+             <h6 class="m-0 font-weight-bold text-primary">Produit en Stock</h6>
+            </div>
+            <div class="card-body" style="width: auto; height: auto"  >
+                <div class="chart-area">
+                 <canvas id="myChart"style="width: auto; height: auto" ></canvas>
+                </div>
+                                                           
+                </div>
+         </div>
+        </div>
+        </div>                     
+</section>        
+
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/stylish-portfolio.min.js"></script>
+
+
+    <!-- Page level plugins -->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{product|tojson }},
+                datasets: [{
+                    label: 'Quantité',
+                    data: {{quantity|tojson }},
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(244, 67, 54)',
+                        'rgba(0, 131, 143)',
+                        'rgba(0, 200, 83)',
+                        'rgba(144, 12, 63)',
+                        'rgba(205, 220, 57)',
+                        'rgba(255, 234, 0)',
+                        'rgba(255, 111, 0)',
+                        'rgba(251, 192, 45)',
+                        'rgba(126, 87, 194)',
+                        'rgba(255, 23, 68)',
+                        'rgba(83, 109, 254)',
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(244, 67, 54)',
+                        'rgba(0, 131, 143)',
+                        'rgba(0, 200, 83)',
+                        'rgba(144, 12, 63)',
+                        'rgba(205, 220, 57)',
+                        'rgba(255, 234, 0)',
+                        'rgba(255, 111, 0)',
+                        'rgba(251, 192, 45)',
+                        'rgba(126, 87, 194)',
+                        'rgba(255, 23, 68)',
+                        'rgba(83, 109, 254)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        </script>
+          <script>
+            var ctx = document.getElementById('myBarChart1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+              data: {
+              labels: {{heure|tojson }},
+    datasets: [{ 
+        data: {{total_hour|tojson }},
+        label: 'Total Encaissement €',
+        borderColor: "#33FF77",
+        fill: false
+      }]}
+            });
+</script>
+
+<script>
+var ctx = document.getElementById("myPieChart2");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Dépense", "Bénéfice"],
+    datasets: [{
+      data: [{{montant_depense|tojson}}, {{montant_marge|tojson}}],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+</script>
+
+<script>
+
+var birdsCanvas = document.getElementById("birdsChart");
+
+var birdsData = {
+  labels: [{{produit_perissable[0]|tojson}}, {{produit_perissable[1]|tojson}}],
+  datasets: [{
+    data: [{{quantity_perissable[0]|tojson}}, {{quantity_perissable[1]|tojson}}], 
+    backgroundColor: [
+      "rgba(255, 0, 0, 0.5)",
+      "rgba(100, 255, 0, 0.5)",
+      "rgba(200, 50, 255, 0.5)",
+      "rgba(0, 100, 255, 0.5)"
+    ]
+  }]
+};
+
+var polarAreaChart = new Chart(birdsCanvas, {
+  type: 'polarArea',
+  data: birdsData
+});
+</script>
+
+
+</body>
+
+</html>

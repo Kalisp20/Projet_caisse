@@ -1,0 +1,71 @@
+<title>Dashboard</title>
+<!-- Bootstrap Core CSS -->
+<link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../static/css/stylish-portfolio.min.css" rel="stylesheet">
+
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="{{url_for('.index',company=company)}}">Accueil</a>
+      </li>
+    <li class="sidebar-nav-item">
+      <a class="js-scroll-trigger" href="{{url_for('.caisse', company=company ) }}">Caisse</a>
+    </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.stock',company=company)}}">Stock</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.test', company=company)}}">Fournisseurs</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.logout', company=company)}}">Se déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+
+<section class="py-5" style="background-image: url('../static/img/Dashboard.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;height: 750px" id='page-top'>
+    <div class="alert alert-danger" role="alert">
+        <h5> Les données sont insuffissantes pour être analysées ! </h5>
+        <p> Ceci peut s'expliquer car aucun produit n'est renseigné dans stock et /ou vous n'avez pas encore réalisé de vente ! </p>
+
+      </div>
+</section>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/stylish-portfolio.min.js"></script>
+
+
+</body>
+
+</html>

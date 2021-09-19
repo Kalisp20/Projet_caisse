@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Mon Stock</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/stylish-portfolio.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstable.js" ></script>
+
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.js"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+          var dataTable = $('#sample_data').DataTable();
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.id_fournisseur',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'ID Fournisseur',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.jours_conservation',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Jours de conservation',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+            
+          });
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.d_produit',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Produit',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.produit',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Produit',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+        
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.categorie',
+              url:'{{ url_for('.updatestock', company=company ) }}' ,
+              title:'Catégorie',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+        
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.origine',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Origine',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+        
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.quantité',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Quantité',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+        
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.unité',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Unité',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+        
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.prix_unitaire',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Prix Unitaire',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.prix_vente',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Prix Vente Unitaire',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.nombre_colis',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Nombre Colis',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+          
+          $('#sample_data').editable({
+              container:'body',
+              selector:'td.taxe',
+              url:'{{ url_for('.updatestock', company=company ) }}',
+              title:'Taxe',
+              type:'POST',
+              validate:function(value){
+                  if($.trim(value) == '')
+                  {
+                      return 'This field is required';
+                  }
+              }
+          });
+
+    
+        }); 
+
+        </script>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="{{url_for('.index', company=company ) }}">Accueil</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.caisse', company=company ) }}">Caisse</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.dashboard', company=company ) }}">Dashboard</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.test', company=company ) }}">Fournisseurs</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.logout', company=company ) }}">Se déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <section class="py-5" style="background-image: url('../static/img/portofolio-stock.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;height: 750px">
+  
+  </section>
+
+ 
+  <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Voulez-vous supprimer ce produit ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url_for('.stock', company=company ) }}" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="text" class="form-control form-control-user" id= "input-field-id3" name='row_remove' type="submit"  aria-describedby="emailHelp" >
+          </div>
+  
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"  name="remove" >Valider</button>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio" style="padding-top: 2.5rem;">
+    
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Renseignez vos Achats!</h2>
+      </div>
+      <div class="d-flex justify-content-around">
+        
+          <div class="col-lg-6 ">
+            <a class="portfolio-item" href="{{url_for('.consult_stock', company=company ) }}" id="consult">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Consulter</div>
+                  <p class="mb-0">Consulter vos fournisseurs enregistrés dans votre base de donnée !</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/consulter.jpg" alt="" >
+            </a>
+          </div>
+   
+
+
+        <div class="col-lg-6" id="bills">
+            <a class="portfolio-item" data-toggle="modal" data-target="#exampleModal1" >
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Facture</div>
+                  <p class="mb-0">Renseigner vos achats simplement en téléchargeant votre facture au format pdf !</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/bills.jpg"  alt="Facture">
+            </a>
+          </div>
+
+          <div class="col-lg-6" id="add_product">
+            <a class="portfolio-item" data-toggle="modal" data-target="#exampleModal">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Formulaire</div>
+                  <p class="mb-0">Renseigner chaque achat via le formulaire !</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/checklist.jpg"   alt="Formulaire">
+            </a>
+          </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+{% if no_fournisseur %} 
+<div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Vos achats ont été chargés avec succès !</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body" data-dismiss="modal">
+        <form>
+          <div class="form-group">
+              <p>Renseignez vos fournisseur avant d'enregistrer vos achats !</p>
+          </div>
+
+           <div class="modal-footer">
+              
+              <button button type='submit' class="btn btn-success">J'y vais !</button>
+              
+            </div>
+        
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+{% endif %}
+
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Renseignez votre stock en téléchargeant votre facture</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form method="POST" action="{{url_for('.stock', company=company ) }}" enctype="multipart/form-data">
+              <div class="form-group">
+                
+                <label for="exampleFormControlSelect1">Sélectionner le fournisseur</label>
+                <select class="form-control" id="select_fournisseur" name= 'id_f' required="true">
+                  {% for element in name_fournisseur %}
+                  <option>{{element}}</option>
+                  {% endfor %}
+                </select>
+
+              </div>
+
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1" >Sélectionner le type</label>
+                  <select class="form-control" id="select_categ" name= 'categ' required="true">
+                    <option>Fruits & Légumes</option>
+                    <option>Épicerie</option>
+                    <option>Boisson</option>
+                    <option>Snack</option>
+                  </select>
+              </div>
+  
+              <div class="form-group">
+                <label for="exampleFormControlSelect1" >Sélectionner la date de réception</label>
+
+                  <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" name="datetimepicker1" id="datetimepicker1" data-target="#datetimepicker1" required="true"/>
+                    <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <span class="glyphicon glyphicon-calendar">
+                        </span>
+                        </span>
+                  </div>
+              </div>
+        
+
+
+                <div class="form-group" >
+                  <label for="exampleFormControlSelect1" >Renseigner la marge</label>
+                    <input type="number" step="0.01" class="form-control form-control-user" name= 'marge' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Taux pourcentage marge..." required="true">
+                </div> 
+
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" >Renseigner la taxe</label>
+                  <select class="form-control" id="select_tax" name= 'taxe' placeholder="Taux pourcentage taxe..." required="true">
+                    <option value='5.5'>5,5</option>
+                    <option value='20'>20</option>
+                  </select>
+                </div> 
+
+
+              <div class="form-group">
+                  <input type="file" name="file" accept=".pdf" required="true">
+              </div>
+
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" name="PDF" value="PDF">Valider</button>
+                  
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+      </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Mon achat</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form method="POST" action="{{url_for('.stock', company=company ) }}" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1" >Sélectionner le fournisseur</label>
+
+          <select class="form-control" id="exampleFormControlSelect1" name= 'id_f' >
+            {% for element in name_fournisseur %}
+            <option>{{element}}</option>
+            {% endfor %}
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1" >Sélectionner le type</label>
+
+          <select class="form-control" id="exampleFormControlSelect1" name= 'categ' required="true">
+            <option>Fruits & Légumes</option>
+            <option>Épicerie</option>
+            <option>Boisson</option>
+            <option>Snack</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1" >Sélectionner la date de réception</label>
+
+          <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" name="datetimepicker2" id="datetimepicker2" data-target="#datetimepicker2" required="true"/>
+            <span class="input-group-addon" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                <span class="glyphicon glyphicon-calendar">
+
+                </span></span>
+            </div>
+          </div>
+     
+
+
+      <div class="form-group">
+        <input type="text" class="form-control form-control-user" name= 'lot' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="N°lot..." required="true">
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control form-control-user" name= 'colis' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nombre Colis..." required="true">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" class="form-control form-control-user" name= 'marge_manuel' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Taux pourcentage marge..." required="true">
+      </div>  
+
+
+      <div class="form-group">
+        <select class="form-control" id="select_tax" name= 'taxe' placeholder="Taux pourcentage taxe..." required="true">
+          <option value='5.5'>5,5</option>
+          <option value='20'>20</option>
+        </select>
+      </div> 
+
+      <div class="form-group">
+        <input type="text" class="form-control form-control-user" name= 'prod' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nom Produit..." required="true">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control form-control-user" name= 'd_produit' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Description Produit..." required="true">
+      </div>  
+
+      <div class="form-group">
+        <input type="text" class="form-control form-control-user" name= 'ori' id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Origine..." required="true">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" class="form-control form-control-user" name= 'quantity'id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Quantité..." required="true">
+      </div>
+
+      <div class="form-group">
+        <select class="form-control" id="exampleFormControlSelect1" name= 'unity' required="true">
+          <option>K</option>
+          <option>P</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <input type="number" step="0.01" class="form-control form-control-user" name= 'price'id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Prix Unitaire de Vente..." required="true">
+      </div>
+
+    
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary" name="Manuel" value="Manuel">Valider</button>
+      
+    </div>
+  </form>
+  </div>
+</div>
+</div>
+      </p>
+    </div>
+  </div>
+
+</section>
+
+{% if data %}
+  {% if view_page %}
+  <section>
+  <div class="align-self-center">
+  <div >
+    <img src="../static/img/image_pdf.jpg" style="height: 40rem; width: auto;">
+  </div>
+  <div >
+    <h5>{{nombre_page}}</h5>
+  </div>
+
+  </div>
+  </section>
+  {% endif %}
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Vos achats ont été chargés avec succès !</h5>
+            <button type="button" id="close_success_modal" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <div class="modal-body" data-dismiss="modal">
+          <form>
+            <div class="form-group">
+                <p>Merci de vérifier la transcription des informations !</p>
+            </div>
+
+             <div class="modal-footer">
+                
+                <a type="button" id="go_view" class="btn btn-success js-scroll-trigger" href="#table_achats">J'y vais !</a>
+                
+              </div>
+          
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <section style="margin:30px;" id="table_achats" >
+  <div >
+    <form href="{{ url_for('.updatestock', company=company)}}" role="form" method="post" >
+            <div class="panel-body" >
+                <div class="table-responsive">
+                    <table id="sample_data" class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th>ID Produit</th>
+                                <th>ID Fournisseur</th>
+                                <th>Catégorie</th>
+                                <th>Date Livraison</th>
+                                <th>Date Péremption</th>
+                                <th>Jours Conservation</th>
+                                <th>N°lot</th>
+                                <th>Nombre Colis</th>
+                                <th>Description Produit</th>
+                                <th>Produit</th>
+                                <th>Origine</th>
+                                <th>Quantité</th>
+                                <th>Unité</th>
+                                <th>Prix Unitaire</th>
+                                <th>Prix Total</th>
+                                <th>Prix Unitaire Vente HT</th>
+                                <th>Taux Taxe</th>
+                                <th>Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                            <tr>
+                                <td name='pk' data-pk="{{row.id_produit}}">{{row.id_produit}}</td>
+
+                                <td data-name="id_fournisseur" class="id_fournisseur" name=id_fournisseur data-type="text" data-pk="{{row.id_produit}}">{{row.id_fournisseur}}</td>
+                                <td data-name="categorie" class="categorie" data-type="text" data-pk="{{row.id_produit}}">{{row.categorie}}</td>
+                                <td data-name="date_livraison" class="date_livraison" data-type="text" data-pk="{{row.id_produit}}">{{row.date_livraison}}</td>
+                                <td data-name="date_peremption" class="date_peremption" data-type="text" data-pk="{{row.id_produit}}">{{row.date_peremption}}</td>
+                                <td data-name="jours_conservation" id= "jours_conservation" class="jours_conservation" data-type="text" data-pk="{{row.id_produit}}">{{row.jours_avant_peremption}}</td>
+                                
+                                <td data-name="lot" class="lot" data-type="text" data-pk="{{row.id_produit}}">{{row.n_lot}}</td>
+                                <td data-name="nombre_colis" class="nombre_colis"  data-type="text" data-pk="{{row.id_produit}}">{{row.nombre_colis}}</td>  
+                                <td data-name="d_produit" class="d_produit" data-type="text" data-pk="{{row.id_produit}}">{{row.description_produit}}</td>
+                                <td data-name="produit" class="produit" data-type="text" data-pk="{{row.id_produit}}">{{row.produit}}</td>
+                                <td data-name="origine" class="origine"  data-type="text" data-pk="{{row.id_produit}}">{{row.origine}}</td>
+                                <td data-name="quantité" class="quantité"  data-type="number" data-pk="{{row.id_produit}}">{{row.quantité}}</td>
+                                <td data-name="unité" class="unité"  data-type="text" data-pk="{{row.id_produit}}">{{row.unité}}</td>
+
+                                <td data-name="prix_unitaire" class="prix_unitaire" data-type="number" data-pk="{{row.id_produit}}">{{row.prix_unitaire}}</td>
+                                <td data-name="prix_total" class="prix_total" data-type="number" data-pk="{{row.id_produit}}">{{row.prix_total}}</td>
+
+                                <td data-name="prix_vente" class="prix_vente" data-type="number" data-pk="{{row.id_produit}}">{{row.prix_vente_unitaire}}</td>
+                                <td data-name="taxe" class="taxe" data-type="number" data-pk="{{row.id_produit}}">{{row.taxe}}</td>
+                                <td data-field="remove" name='remove' class="remove" id="remove"><button type="button" data-toggle="modal" data-target="#exampleModal4"class="btn btn-danger" id="DeleteButton"><span class="glyphicon glyphicon-trash"></span></button></td>
+
+                                
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    <br />
+    <br />
+    
+    </form>
+  
+</div>
+
+</section>
+
+
+{% endif %}
+
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#!">
+            <i class="icon-social-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#!">
+            <i class="icon-social-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="#!">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+ 
+
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/stylish-portfolio.min.js"></script>
+
+  <script>
+    $(function () {
+      $("#datetimepicker1").datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss'});
+      
+    });
+  </script>
+  <script>
+    $(function () {
+        $("#datetimepicker2").datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss'});    
+    });
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#sample_data').DataTable( {
+        "paging": false,
+        "searching": false
+        "processing": true,
+        "serverSide": true,
+        "ajax": "../server_side/scripts/server_processing.php"
+    } );
+} );
+</script>
+
+
+<script>
+$("#successModal").modal("show");
+
+</script>
+<script>
+  
+  $("#failModal").modal("show");
+  $('#failModal').on( "click", function() {
+    window.open("{{url_for('.test', company=company ) }}")
+  });
+  </script>
+<script>
+  $( "#sample_data tbody tr " ).on( "click", function() {
+      
+      $(this).addClass('selected').siblings().removeClass('selected');  
+      var id=$(this).find('td:first').html();
+      
+      console.log($('#input-field-id3').val(id));
+      
+    });
+
+  </script>
+
+
+<script>
+  $( "#remove " ).on( "click", function() {
+    $("#exampleModal4").modal("show");
+          }); 
+</script>
+
+</body>

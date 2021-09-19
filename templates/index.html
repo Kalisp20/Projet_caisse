@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Stylish Portfolio - Start Bootstrap Template</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/stylish-portfolio.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.logout', company=company ) }}">Se déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+
+
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Bonjour</h3>
+        <h2 class="mb-5">{{company}}</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="{{url_for('.caisse', company=company)}}" id="Caisse">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">Caisse</div>
+                <p class="mb-0">Scanner, Rechercher, Détecter...</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="../static/img/Caisse.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="{{url_for('.test', company=company)}}" id="Fournisseur">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">Mes Fournisseurs</div>
+                <p class="mb-0" style="width: auto;">Raison Social, Numéro SIRET, Adresse ...</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="../static/img/Fournisseurs.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="{{url_for('.dashboard', company=company)}}" id="Dashboard">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">Mon Dashboard</div>
+                <p class="mb-0">Les chiffres clés: Stock , Dépenses, Ventes...</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="../static/img/Dashboard.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="{{url_for('.stock', company=company)}}" id="Stock">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">Mon Stock</div>
+                <p class="mb-0">Renseigner, Consulter, Modifier...</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="../static/img/Stock.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#!">
+            <i class="icon-social-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#!">
+            <i class="icon-social-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="#!">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/stylish-portfolio.min.js"></script>
+
+</body>
+
+</html>

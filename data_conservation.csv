@@ -1,0 +1,43 @@
+,produit,Conseils,Air_ambiant Minimum,Air_ambiant Maximum,Frigo Minimum,Frigo Maximum,Type durée,mean_conservation
+0,   Abricot,"En cas de conservation au réfrigérateur, sortir les abricots 30 min avant la dégustation pour qu’ils recouvrent tous leurs arômes.",2.0,5.0,7.0,8.0,jours,5.5
+1,   Ail,"Entreposer au sec, à l’abri de la lumière. Attention, l’ail frais se conserve quelques jours au réfrigérateur.",6.0,12.0,,,mois,9.0
+2,   Ananas,Sensible au froid (<7°C) et aux chocs. Peut brunir.,5.0,6.0,1.0,2.0,jours,3.5
+3,   Artichaut,"Le conserver avec sa tige. Sensible à l’oxydation après cuisson, le consommer dans les 12 h.",,,4.0,5.0,jours,4.5
+4,   Asperge,"Conserver crues,  en botte dans un linge humide, pointes vers le haut ou dans une boîte hermétique.",,1.0,2.0,3.0,jours,2.0
+5, Aubergine,Conserver dans le bac à légumes.Craint les basses températures et l’air sec.,,,3.0,6.0,jours,4.5
+6,   Avocat,Conserver dans le bac à légumes.,3.0,5.0,2.0,3.0,jours,3.25
+7,   Banane,Très sensible aux chocs.Perte d’arôme et brunissement de la peau si placée dans le régrigérateur.,4.0,5.0,,,jours,4.5
+8,   Brocoli,"Entier, bien emballé dans un film alimentaire ou dans une boîte hermétique.",,,4.0,5.0,jours,4.5
+9,   Carotte,Risque de développer de l’amerture si conservée avec des pommeset des poires.,,2.0,,15.0,jours,8.5
+10,Céleri branche et rave,Conserver le céleri rave entier non pelé.Conserver le céleri branchedans un linge humide.,,,,5.0,jours,5.0
+11,   Cerise,"Idéalement,  les consommer rapidement après le retour du marché.",2.0,4.0,,5.0,jours,3.6666666666666665
+12,Champignons de Paris,Conserver dans un contenant hermétique. Inutile de blanchir avant congélation.,,,2.0,4.0,jours,3.0
+13,   Chou-fleur,"Conserver entier dans un sachet fermé, ou lavé et divisé en bouquets,Craint les coups et les chocs.",,2.0,4.0,5.0,jours,3.6666666666666665
+14,   Chou pommé,"Une fois entamé, le conserver dans une boîte hermétique ou enveloppé dans du film alimentaire étirable.",,,,7.0,jours,7.0
+15,   Clémentine,Ne pas conserver dans des pièces trop chauffées  car risque de dessèchement.,,6.0,,10.0,jours,8.0
+16,   Concombre,Conserver dans le bac à légumes. Ne pas congeler. Craint le froid.,2.0,3.0,3.0,5.0,jours,3.25
+17,   Courges,"Les conserver entières dans un endroit sec et frais. Si en tranches, conserver 4 à 5 jours dans une boîte hermétique au frais.",,,,,,
+18,   Courgette,"Entière, avec le pédoncule, pour préserver sa fraîcheur.",,,4.0,6.0,jours,5.0
+19,   Echalote,"Dans un endroit sec, sombre et frais. Epluchée, la conserver au réfrigérateur dans une boîte hermétique 2 à 3 jours.",1.0,2.0,,,mois,1.5
+20, Endive,"Conservées à l’air ambiant, les endives doivent être emballées dans un sachet opaque ; la lumière les fait verdir et les rend plus amères.",1.0,2.0,,6.0,jours,3.0
+21,   Fenouil,"Garder au réfrigérateur les plumets du fenouil dans une boîte hermétique ; ils parfumeront une salade, un court-bouillon, un poisson mariné, etc.",,,,7.0,jours,7.0
+22,   Fraise,"Pour les laver, les passer sous l’eau puis les équeuter.",,1.0,,6.0,jours,3.5
+23,   Herbes   aromatiques,Lavées et enveloppées dans un linge tapissée d’un papier absorbant humide.,,,4.0,5.0,jours,4.5
+24,   Kiwi ,"Pour accélèrer leur maturation, placer à côté des pommes ou des bananes.",5.0,7.0,,2.0,jours,4.666666666666667
+25,   Mâche,"Bien emballée dans sa barquette, ou lavée et essorée dans un sachet de congélation.",,,2.0,3.0,jours,2.5
+26,Melon,,1.0,2.0,2.0,6.0,jours,2.75
+27,   Navet,"Les navets nouveaux (primeurs, avec fanes) peuvent être conservés 4 à 5 jours dans le bac à légumes du réfrigérateur.",,,,7.0,jours,7.0
+28,   Oignon,L’oignon émincé peut être conservé au réfrigérateur dans une boîte hermétique 2 à 3 jours.,1.0,2.0,,,mois,1.5
+29,   Orange,Ne pas conserver dans des pièces trop chauffées car risquent de se dessécher.,,6.0,,10.0,jours,8.0
+30,Pêche Nectarine,"Si stockées au frais, les sortir à l’air ambiant  30 min avant la dégustation.",2.0,4.0,3.0,4.0,jours,3.25
+31,   Petits Pois,Les conserver non écossés.,,,,2.0,jours,2.0
+32,Petits fruits rouges ,Dans une boite hermétique. Les sortir 30 min avant de les déguster pour qu’ils recouvrent tous leurs arômes.,,,1.0,2.0,jours,1.5
+33, Poire,Très sensible aux chocs.,1.0,2.0,1.0,3.0,jours,1.75
+34,   Poireau,Conserver le poireau émincé 2 à 3 jours dans une boîte hermétique au réfrigérateur.,1.0,2.0,4.0,5.0,jours,3.0
+35,   Poivron,Conserver un poivron entamé 1 à 2 jours dans du film alimentaire.,,,5.0,8.0,jours,6.5
+36,Pomme,Très sensible aux chocs.,7.0,8.0,7.0,15.0,jours,9.25
+37, Prune,"Pour une dégustation nature, sortir les prunes du réfrigérateur 30 min avant afin qu’elles recouvrent tous leurs arômes.",2.0,3.0,5.0,10.0,jours,5.0
+38,   Radis,"Pour préserver leur fraîcheur, les conser-ver avec leurs fanes.",,,1.0,2.0,jours,1.5
+39,   Raisin,"Pour une dégustation nature, sortir le raisin du réfrigérateur 30 min avant afin qu’il recouvre tous ses arômes.",3.0,4.0,3.0,5.0,jours,3.75
+40,   Salade verte,Conserver entière ou lavée et essorée dans un contenant hermétique.,,,4.0,6.0,jours,5.0
+41,   Tomate,"Quand elles en possèdent à l’achat, conserver les tomates avec leurs pédoncules pour préserver plus longtemps leur fraîcheur.",3.0,4.0,,,jours,3.5

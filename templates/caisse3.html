@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Caisse</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/stylish-portfolio.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstable.js" ></script>
+
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.js"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="{{url_for('.index', company=company ) }}">Accueil</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.stock', company=company ) }}">Stock</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.test', company=company ) }}">Fournisseurs</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.dashboard', company=company ) }}">Dashboard</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="{{url_for('.logout', company=company ) }}">Se déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <section class="py-5" style="background-image: url('../static/img/portofolio-caisse.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;height: 750px">
+  </section>
+
+  <section style="padding-top: 2.5rem" >
+    <div class="container">
+    <button class="btn btn-warning btn-lg btn-block" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3"><span class="glyphicon glyphicon-user"></span>  Client</button>
+    </div>
+
+  <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nouveau client!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+            <div class="form-group d-flex align-items-center">
+              <input type="text" class="form-control form-control-user" id= "nom_client" name='nom_client' type="submit"  aria-describedby="emailHelp" placeholder="Nom...">
+              <input type="text" class="form-control form-control-user" id= "prenom_client" name='prenom_client' type="submit"  aria-describedby="emailHelp" placeholder="Prénom...">
+
+            </div>
+     
+          <div class="form-group ">
+            <input type="text" class="form-control form-control-user" id= "adresse" name='adresse' type="submit"  aria-describedby="emailHelp" placeholder="Adresse...">
+          </div>
+          <div class="form-group d-flex align-items-center">
+            <input type="text" class="form-control form-control-user" id= "num_tel" name='num_tel' type="submit"  aria-describedby="emailHelp" placeholder="Numéro Tel...">
+            <input type="text" class="form-control form-control-user" id= "email" name='email' type="submit"  aria-describedby="emailHelp" placeholder="Email...">
+
+          </div>
+          <div class="form-group ">
+          </div>
+  
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"  name="add_client" >Valider</button>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center" style="margin:10px;">
+      <div class="p-2 bd-highlight" id="multiCollapseExample3">
+        
+        <div class= "d-flex flex-column bd-highlight mb-3">
+          <img class="card-img-left" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="../static/img/CMF-Series-17-Group.png"  data-holder-rendered="true" style="height: 30rem; width:auto; position: relative;">
+         
+          <div class="d-flex justify-content-between">
+            <div>
+              <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal5"><span class="glyphicon glyphicon-plus"></span> Ajouter ! </button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-dark btn-lg" data-toggle="collapse" data-target="#view_table_client"><span class="glyphicon glyphicon-eye-open"></span> Consulter ! </button>
+            </div>
+          </div>
+        </div>
+
+        <form href="{{ url_for('.caisse', company=company)}}" role="form" method="post" >
+          <div id="view_table_client" style="width: auto;">
+
+            <table id="table_client" class="table table-striped table-bordered table-sm" style="width: 60rem;">
+              <thead>
+                  <tr>
+                      <th>ID Client</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Adresse</th>
+                      <th>Numéro Tel</th>
+                      <th>Email</th>
+    
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for row in client %}
+                  <tr class="td" style="cursor: pointer">
+                    <td name="id_pk" data-pk={{row.id_client}}>{{row.id_client}}</td>
+                    <td data-name="nom_client" class="nom_client" data-type="text" data-pk="{{row.id_client}}">{{row.nom}}</td>
+    
+                    <td data-name="produit_add" class="produit_add" data-type="text" data-pk="{{row.id_client}}">{{row.prenom}}</td>
+                    <td data-name="quantity" class="quantity" data-type="text" data-pk="{{row.id_client}}">{{row.adresse}}</td>
+                    <td data-name="unité" class="unité" data-type="number" data-pk="{{row.id_client}}">{{row.num_tel}}</td>
+                    <td data-name="prix_vente_TTC" class="prix_vente_TTC"  data-type="text" data-pk="{{row.id_client}}">{{row.email}}</td>
+    
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+        </div>
+     
+        </form>
+      </div>
+      </div>
+    </section>
+  {% if ticket %}
+  <section>
+  <div class="container">
+  <p >
+    <a class="btn btn-info btn-lg btn-block" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a>
+    <button class="btn btn-danger btn-lg btn-block" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><span class="glyphicon glyphicon-eur"></span>  Paiement</button>
+
+  </p>
+</div>
+
+ <div class= "d-flex justify-content-around">
+  <div class="p-2 bd-highlight" id="multiCollapseExample1" >
+    <div class="card mb-4 box-shadow" style="width: 60rem;">
+      <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="../static/img/Achats-10.jpg" data-holder-rendered="true" style="height: 225px; width: 90%; margin: auto;">
+      <div class="card-body">
+            <table id="table_panier" class="table table-bordered table-striped" style="width: auto;">
+                <thead>
+                    <tr>
+                        <th>ID Vente</th>
+                        <th>ID Produit</th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Unité</th>
+                        <th>TTC 5.5</th>
+                        <th>TTC 20</th>
+                        <th>Annuler</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in ticket %}
+                    <tr class="td" style="cursor: pointer">
+                      <td name="id_pk" data-pk={{row.id_vente}}>{{row.id_vente}}</td>
+                      <td data-name="produit_add" class="produit_add" data-type="text" data-pk="{{row.id_vente}}">{{row.id_produit}}</td>
+
+                      <td data-name="produit_add" class="produit_add" data-type="text" data-pk="{{row.id_vente}}">{{row.produit}}</td>
+                      <td data-name="quantity" class="quantity" data-type="text" data-pk="{{row.id_vente}}">{{row.quantité}}</td>
+                      <td data-name="unité" class="unité" data-type="number" data-pk="{{row.id_vente}}">{{row.unité}}</td>
+                      <td data-name="prix_vente_TTC" class="prix_vente_TTC"  data-type="text" data-pk="{{row.id_vente}}">{{row.TTC_5_5}}</td>
+                      <td data-name="prix_vente_TTC" class="prix_vente_TTC"  data-type="text" data-pk="{{row.id_vente}}">{{row.TTC_20}}</td>
+
+                        <td data-field="remove" name='remove' class="remove" id="remove"><button type="button" name='remove' class="btn btn-danger" data-toggle="modal" data-target="#exampleModal3" id="DeleteButton"><span class="glyphicon glyphicon-trash"></span></button></td>
+    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+  
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="p-2 bd-highlight" id="multiCollapseExample2" >
+    <div class="card mb-4 box-shadow" style="width: 40rem;">
+      <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="../static/img/paid.jpg"  data-holder-rendered="true" style="height: 30rem; width:auto; position: relative;">
+      <div class="card-body">
+        
+          <h3 class="mb-0">
+            <a class="text-dark" href="#">{{prix_total_TTC}}€</a>
+          </h3>
+      <div class="d-flex justify-content-around">
+          <p>{{prix_total_HT}}€ HT</p>
+          <input id="input_client" name='id_client' placeholder="id client">
+      </div>
+          </br>
+        <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+          <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-dark btn-lg" name="wait"  id="wait"><span class="glyphicon glyphicon-pause"></span> En Attente</button>
+          <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal4"><span class="glyphicon glyphicon-piggy-bank"></span> À Payer ! </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Voulez-vous retirer ce produit du panier ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="text" class="form-control form-control-user" id= "input-field-id2" name='row_remove' type="submit"  aria-describedby="emailHelp" >
+          </div>
+  
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onClick="window.location.refresh_field();"data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"  name="remove_product" >Valider</button>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> 
+    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Paiement</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name='select_client'>
+                  <option>Inconnu</option>
+                  {% for element in client %}
+                  <option>{{element.id_client}}</option>
+                  
+
+                  {% endfor %}
+                </select>
+
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control form-control-user" id= "remise" name='remise' type="submit"  aria-describedby="emailHelp" placeholder="Montant remise...">
+              </div>
+              <div class= "d-flex justify-content-center">
+              <div class="form-group">
+              <input type="text" class="form-control form-control-user" id= "CB" name='CB' type="submit"  aria-describedby="emailHelp" placeholder="Montant CB...">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-control-user" id= "espèces" name='espèces' type="submit"  aria-describedby="emailHelp" placeholder="Montant Espèces...">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-control-user" id= "chèque" name='chèque' type="submit"  aria-describedby="emailHelp" placeholder="Montant Chèque...">
+            </div>
+          </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary"  name="paiement" >Valider</button>
+                  
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+      </div>
+
+</section>
+{% endif %}
+
+{% if montant_transaction %}
+<div class="modal fade"  id= "monnaie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Rendu Monnaie : {{montant_transaction[1]}}€</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+        <div class="form-group">
+          
+          <p>Total Encaissé : {{montant_transaction[0]}}</p>
+          <p></p>
+
+        </div>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" href="{{url_for('.caisse', company=company ) }}" data-dismiss="modal">Close</button>
+              
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+{% endif %}
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio" style="padding-top:0rem;">
+    <div class="container" style="width: 900px">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Encaisser en toute simplicité !</h2>
+      </div>
+      <div class="d-flex justify-content-around">
+          <div class="col-lg-6">
+            <a class="portfolio-item">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Scanner</div>
+                  <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/code_barre.png" alt="">
+            </a>
+          </div>
+
+          <div class="col-lg-6">
+            <a class="portfolio-item" id="prediction" data-toggle="modal" data-target="#exampleModal1">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Détecter</div>
+                  <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/camera_ia.jpg" alt="">
+            </a>
+          </div>
+
+          <div class="col-lg-6">
+            <a class="portfolio-item" data-toggle="modal" data-target="#search_product_Modal" id="search_product">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Rechercher</div>
+                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/search.jpg" alt="">
+            </a>
+          </div>
+
+          <div class="col-lg-6">
+            <a class="portfolio-item" data-toggle="modal" data-target="#exampleModal7">
+              <div class="caption">
+                <div class="caption-content">
+                  <div class="h2">Tickets en Attentes</div>
+                  <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="../static/img/wait_paid.jpg" alt="">
+            </a>
+          </div>
+
+ 
+
+
+
+  
+      </div>
+    </div>
+  </section>
+
+ <!-- Portfolio Modal-->
+ <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Panier en attentes de paiement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+
+      <div class="modal-body">
+          <div class="panel-body" >
+            <div class="table-responsive">
+                <table id="panier_attente" class="table table-bordered table-striped" >
+            <thead>
+                    <tr>
+                        <th>ID Panier</th>
+                        <th>Nombre Produit</th>
+                        <th>Contenu</th>
+                        <th>Total TTC</th>
+                        <th>Date</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in ticket_attente %}
+                    <tr class="td" style="cursor: pointer">
+                        <td >{{row[0]}}</td>
+                        <td data-name="nb_produit" class="nb_produit" data-type="text" data-pk="{{row.id_panier}}">{{row[1]}}</td>
+                        <td data-name="contenu" class="contenu" data-type="text" data-pk="{{row.id_panier}}">{{row[2]}}</td>
+                        <td data-name="total" class="total" data-type="number" data-pk="{{row.id_panier}}">{{row[8]}}</td>
+                        <td data-name="date" class="date"  data-type="text" data-pk="{{row.id_panier}}">{{row[10]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="ID panier" aria-label="Search" id="ID_panier_attente" name="id_panier">
+  </div>
+  <div class="form-group d-flex justify-content-center">
+    <input class="form-control mr-sm-2" type="search" placeholder="Chèque" aria-label="Search" name="cheq_wait_paid">
+    <input class="form-control mr-sm-2" type="search" placeholder="Espèces " aria-label="Search" name="esp_wait_paid">
+    <input class="form-control mr-sm-2" type="search" placeholder="CB " aria-label="Search" name="cb_wait_paid">
+
+  </div>
+
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary"  name="paiement_wait">Payer</button>
+              
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal fade" id="search_product_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Rechercher</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+              <div class="form-group">
+                    <input class="form-control mr-sm-2" id= "search_input" type="search" placeholder="Nom produit ou ID produit" aria-label="Search" name="produit">
+            </div>
+    
+    
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="valid_search_product" class="btn btn-primary"  name="search_product">Valider</button>
+                    
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+        </div>
+  
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Caméra</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+          <div class="form-group">
+            <img id="canvas" src="{{ url_for('video_feed') }}" width="100%">
+          </div>
+
+
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"  name="go_pred2" value="PDF">Valider</button>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  
+
+{% if no_found %}
+<div class="modal fade"  id= "no_found" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">{{result_pred}} est introuvable !</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+        <div class="form-group">
+          
+          <p>Pour encaisser ce produit vous devez au préalable le renseigner dans stock !</p>
+
+        </div>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+{% endif %}
+      
+{% if data %}
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter au Panier !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <form method="POST" action="{{url_for('.caisse', company=company ) }}" enctype="multipart/form-data">
+          <p>Cliquer pour sélectionner le produit !</p>
+        </br>
+          <div class="table-responsive">
+            <table id="table_achats" class="table table-bordered table-striped" >
+                <thead>
+                    <tr>
+                        <th>ID Produit</th>
+                        <th>Produit</th>
+                        <th>Description Produit</th>
+                        <th>Prix Unitaire Vente</th>
+                        <th>Unité</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr class="td" style="cursor: pointer">
+                        <td name="id_pk" data-pk={{row.id_produit}}>{{row.id_produit}}</td>
+                        <td data-name="produit" class="produit" data-type="text" data-pk="{{row.produit}}">{{row.produit}}</td>
+                        <td data-name="d_produit" class="d_produit" data-type="text" data-pk="{{row.id_vente}}">{{row.description_produit}}</td>
+                        <td data-name="prix_vente" class="prix_vente" data-type="number" data-pk="{{row.id_vente}}">{{row.prix_vente_unitaire}}</td>
+                        <td data-name="unité" class="unité"  data-type="text" data-pk="{{row.id_vente}}">{{row.unité}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+      
+      <div class="d-flex justify-content-around">
+        <div class="form-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="ID produit..." aria-label="Search" id="input-field-id" name="id_produit">
+        </div>
+        <div class="form-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="Quantité..." aria-label="Search" name="quantity_product">
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success"  name="submit_product" >Au Panier !</button>
+        </div>
+     
+    </form>
+
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endif %}
+
+    {% if not ticket_attente %}
+  <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Aucun ticket n'est en attente de paiement !</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+    
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      
+    {% endif %}
+
+
+
+
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/stylish-portfolio.min.js"></script>
+
+  <script>
+    $("#prediction" ).on( "click",function () {
+        $("#exampleModal1").modal("show");}); 
+</script>
+
+<script>
+  
+      $("#successModal").modal("show");
+      $("#successModal").modal("show");
+      $("#monnaie").modal("show");
+      $("#no_found").modal("show");
+      
+</script>
+  <script>
+    $( "#table_achats tbody tr" ).on( "click", function() {
+        $(this).addClass('selected').siblings().removeClass('selected');    
+    var value=$(this).find('td:first').html();
+  console.log($('#input-field-id').val($('#input-field-id').val() + value));
+});
+</script>
+<script>
+  $("#wait" ).click(function(event) {
+      alert("Le panier a été mis en attente de paiement avec succès !"); 
+      });
+</script>
+
+<script>
+  $( "#table_panier tbody tr" ).on( "click", function() {
+      $(this).addClass('selected').siblings().removeClass('selected');    
+  var value=$(this).find('td:first').html();
+console.log($('#ID_panier').val($('#ID_panier').val() + value));
+
+});
+</script>
+<script>
+  $( "#panier_attente tbody tr" ).on( "click", function() {
+      $(this).addClass('selected').siblings().removeClass('selected');    
+  var value=$(this).find('td:first').html();
+console.log($('#ID_panier_attente').val($('#ID_panier_attente').val() + value));
+
+});
+</script>
+<script>
+  var selected_row= []
+  $( "#table_panier tbody tr " ).on( "click", function() {
+      
+      $(this).addClass('selected').siblings().removeClass('selected');  
+      var product=$(this).find('td.produit_add').text();
+      var id=$(this).find('td:first').html();
+      selected_row.push(id,product)
+      $("#exampleModal3").modal("show");
+      console.log($('#input-field-id2').val(selected_row));
+      
+    });
+
+  </script>
+  <script>
+    var selected_row= []
+    $( "#table_client tbody tr " ).on( "click", function() {
+        
+        $(this).addClass('selected').siblings().removeClass('selected');  
+        var id=$(this).find('td:first').html();
+        selected_row.push(id)
+        console.log($('#input_client').val(selected_row));
+      });
+  
+    </script>
+<script>
+$("#cancel_remove").click(function(event) {
+  $('#input-field-id2').val().refresh_field();
+  alert('OK')
+})
+</script>
+
+</body>
+
+</html>
